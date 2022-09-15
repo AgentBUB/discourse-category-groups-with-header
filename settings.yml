@@ -6,7 +6,7 @@ category_groups:
 category_headers:
   type: "list"
   default: "Default Categories;image;https://demo.shadowdevs.com/img/bg.jpg"
-  description: "Format as: Group name;type(color or image);hex code or url"
+  description: "Add header information for the header to be enabled for designated category.<br>Format as: Group name;type(color or image);hex code or url"
 
 show_on_mobile: 
   default: true
