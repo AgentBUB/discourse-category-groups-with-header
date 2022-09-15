@@ -1,3 +1,18 @@
+.custom-category-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10rem;
+  margin-top: 1rem;
+  
+  .custom-category-header-title {
+    font-family: var(--heading-font-family);
+    font-size: var(--font-up-6);
+    font-weight: 600;
+    color: var(--primary);
+  }
+}
+
 .custom-category-group {
   margin: 0;
   padding: 0;
@@ -13,21 +28,6 @@
   @media screen and (max-width: 650px) { // mobilish
     grid-template-columns: 1fr; 
     grid-gap: 1em;
-  }
-  
-  custom-category-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 10rem;
-    margin-top: 1rem;
-    
-    custom-category-header-title {
-      font-family: var(--heading-font-family);
-      font-size: var(--font-up-6);
-      font-weight: 600;
-      color: var(--primary);
-    }
   }
 
   li.category-box {
