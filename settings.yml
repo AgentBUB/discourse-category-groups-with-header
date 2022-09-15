@@ -2,6 +2,11 @@ category_groups:
   type: "list"
   default: "Default Categories: staff, site-feedback, lounge"
   description: "Format as: Group name: category-slug, category-slug-2"
+  
+category_headers:
+  type: "list"
+  default: "Default Categories: image, https://demo.shadowdevs.com/img/bg.jpg"
+  description: "Format as: Group name: type (color or image), hex code or url"
 
 show_on_mobile: 
   default: true
