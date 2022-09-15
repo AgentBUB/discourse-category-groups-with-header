@@ -1,5 +1,6 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
+    <div class="custom-category-header"></div>
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
         <h2>{{t.name}}</h2> {{d-icon "angle-right"}}
