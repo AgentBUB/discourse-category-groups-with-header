@@ -134,3 +134,6 @@ Handlebars.registerHelper('checkNames', function () {
 Handlebars.registerHelper('checkNamesNot', function () {
   return this.name !== this.hName;
 })
+Handlebars.registerHelper('checkType', function () {
+  return this.type === 'color';
+})
