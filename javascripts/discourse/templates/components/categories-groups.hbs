@@ -1,9 +1,11 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
-    <div class="custom-category-header"><h1 class="custom-category-header-title">{{t.name}}</h1></div>
+    {{#if t.name === t.hName}}
+    <div class="custom-category-header" style="{{#if t.type === 'color'}}background-color: {{t.code}};{{#else}}background-image: url({{t.code}});{{/if}}"><h1 class="custom-category-header-title">{{t.name}}</h1></div>
+    {{/if}}
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
-        {{d-icon "angle-right"}}
+        {{#if t.name !== t.hName}} {{t.name}} {{/if}} {{d-icon "angle-right"}}
       </a>
       
       <ul class="custom-category-group">

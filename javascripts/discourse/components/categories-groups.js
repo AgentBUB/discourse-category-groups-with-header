@@ -16,6 +16,18 @@ function parseSettings(settings) {
   return parsed;
 }
 
+function parseHeaderSettings(settings) {
+  let parsed = [];
+  settings.split("|").map(i => {
+      let seg = $.map(i.split(";"), $.trim);
+      let catGroup = seg[0];
+      let type = seg[1];
+      let code = seg[2];
+      parsed.push({ catGroup: catGroup, type: type, code: code });
+  });
+  return parsed;
+}
+
 export default Component.extend({
   catGroupList: [],
 
@@ -45,6 +57,7 @@ export default Component.extend({
     let foundCats = [];
 
     const parsedSettings = parseSettings(settings.category_groups);
+    const parsedHeaderSettings = parseHeaderSettings(settings.category_headers);
 
     parsedSettings.forEach(function(obj) {
       let catGroup = categories.filter((c) => {     
@@ -56,6 +69,18 @@ export default Component.extend({
 
       if (catGroup.length) { // don't show empty groups
         catGroupList.push({ name: obj.catGroup, cats: catGroup });
+      }
+    });
+
+    parsedHeaderSettings.forEach(function(obj) {
+      let headerGroup = catGroupList.name.filter((c) => {     
+          if (obj.catGroup === c.name) {
+              return c;
+          }
+      })
+
+      if (headerGroup.length) { // don't show empty groups
+        catGroupList.push({ hName: obj.catGroup, type: obj.type.toLowerCase(), code: obj.code });
       }
     });
 
