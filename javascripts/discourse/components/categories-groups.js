@@ -127,3 +127,10 @@ export default Component.extend({
   }
   
 });
+
+Handlebars.registerHelper('checkNames', function () {
+  return this.name === this.hName;
+})
+Handlebars.registerHelper('checkNamesNot', function () {
+  return this.name !== this.hName;
+})
