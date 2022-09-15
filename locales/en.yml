@@ -1,4 +1,5 @@
 en:
   theme_metadata:
-    description: "custom category page with groups & headers settings"
+    description: "Category page with groups & headers."
+    author: "Agent_BUB"
   ungrouped_categories_title: "Other"
