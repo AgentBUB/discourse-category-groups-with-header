@@ -1,7 +1,7 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
     {{#if (checkNames)}}
-    <div class="custom-category-header" style={{#if (checkType)}}"background-color: {{t.code}};"{{else}}"background-image: url({{t.code}});"{{/if}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
+    <div class="custom-category-header" style={{styleType}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
     {{/if}}
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
