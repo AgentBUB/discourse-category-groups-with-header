@@ -119,67 +119,64 @@
   }
 }
 
-@if $fancy_styling == "true" {
+.custom-categories-groups {
+  [class^="custom-category-group-"].is-expanded ul {
+  padding-top: 1em;
+  margin-bottom: 2em;
+  }
 
-  .custom-categories-groups {
-    [class^="custom-category-group-"].is-expanded ul {
-    padding-top: 1em;
-    margin-bottom: 2em;
+  .custom-category-group-toggle {
+    align-items: baseline;
+    h2 {
+      font-size: var(--font-1);
+      font-weight: normal;
+      color: var(--primary-medium);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      transition: all .25s;
     }
 
-    .custom-category-group-toggle {
-      align-items: baseline;
-      h2 {
-        font-size: var(--font-1);
-        font-weight: normal;
-        color: var(--primary-medium);
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        transition: all .25s;
-      }
+    .d-icon {
+      font-size: var(--font-down-1);
+      top: 1px;
+    } 
 
-      .d-icon {
-        font-size: var(--font-down-1);
-        top: 1px;
-      } 
+    &:hover {
+      h2 {color: var(--primary);}
+    }
 
-      &:hover {
-        h2 {color: var(--primary);}
-      }
+    &:after {
+      content: "";
+      position: relative;
+      margin-left: 1em;
+      top: -.3em;
+      width: 100%;
+      border-bottom: 1px solid var(--primary-low);
+    }
+  }
 
-      &:after {
-        content: "";
-        position: relative;
-        margin-left: 1em;
-        top: -.3em;
-        width: 100%;
-        border-bottom: 1px solid var(--primary-low);
-      }
-   }
+  .category-box {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid;
+    border-bottom: 8px solid;
+    transition: all .25s;
+    .category-box-inner {
+      border: none;
+      padding: 2em;
+      @media screen and (max-width: 700px) {
+        padding: 2em 1em 1.25em;
 
-    .category-box {
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid;
-      border-bottom: 8px solid;
-      transition: all .25s;
-      .category-box-inner {
-        border: none;
-        padding: 2em;
-        @media screen and (max-width: 700px) {
-          padding: 2em 1em 1.25em;
-
-        }
-        transition: background .25s ease-in-out;
       }
-      .category-box-heading {
-        margin-bottom: .75em;
-      }
-      
-      &:hover {
-        box-shadow: 0 8px 15px rgba(0,0,0,.1);
-        transform: translate(0, -4px);
-      }
+      transition: background .25s ease-in-out;
+    }
+    .category-box-heading {
+      margin-bottom: .75em;
+    }
+    
+    &:hover {
+      box-shadow: 0 8px 15px rgba(0,0,0,.1);
+      transform: translate(0, -4px);
     }
   }
 }
