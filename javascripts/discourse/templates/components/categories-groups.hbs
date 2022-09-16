@@ -89,20 +89,23 @@
 </div>
 <script>
 Handlebars.registerHelper('getHeader', function () {
-  let result = '';
+  let result = '<-- No Header -->';
+
   let style = '';
   if (this.type === 'color') {
-    style = "background-color: this.code"
+    style = `background-color: ${this.code};`
   } else {
-    style = "background-image: url(this.code);"
+    style = `background-image: url(${this.code});`
   }
+
   if (this.name === this.hName) {
     result = `<div class="custom-category-header" style=${style}><h1 class="custom-category-header-title">${this.name}</h1></div>`;
   }
+
   return result;
 })
 Handlebars.registerHelper('getSubTitle', function () {
-  let result = '';
+  let result = '<-- No Title -->';
   if (this.name !== this.hName) {
     result = this.name;
   }
