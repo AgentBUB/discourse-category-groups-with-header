@@ -28,22 +28,6 @@ function parseHeaderSettings(settings) {
   return parsed;
 }
 
-Handlebars.registerHelper('checkNames', function () {
-  return this.name === this.hName;
-})
-Handlebars.registerHelper('checkNamesNot', function () {
-  return this.name !== this.hName;
-})
-Handlebars.registerHelper('styleType', function () {
-  let style = '';
-  if (this.type === 'color') {
-    style = "background-color: this.code"
-  } else {
-    style = "background-image: url(this.code);"
-  }
-  return style;
-})
-
 export default Component.extend({
   catGroupList: [],
 
