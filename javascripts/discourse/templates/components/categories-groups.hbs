@@ -1,11 +1,12 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
-    {{#if (checkNamesCUSTOMHEADER)}}
+    {{!-- {{#if (checkNames)}} --}}
     <div class="custom-category-header" style={{styleType}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
-    {{/if}}
+    {{!-- {{/if}} --}}
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
-        {{#if (checkNamesNotCUSTOMHEADER)}}{{t.name}}{{/if}} {{d-icon "angle-right"}}
+        {{!-- {{#if (checkNamesNot)}}{{t.name}}{{/if}} --}}
+        {{d-icon "angle-right"}}
       </a>
       
       <ul class="custom-category-group">
@@ -89,20 +90,12 @@
   {{/each}}
 
 </div>
-<script>
-Handlebars.registerHelper('checkNamesCUSTOMHEADER', function () {
+{{!-- <script>
+Handlebars.registerHelper('checkNames', function () {
+  console.log(this.name);
   return this.name === this.hName;
 })
-Handlebars.registerHelper('checkNamesNotCUSTOMHEADER', function () {
+Handlebars.registerHelper('checkNamesNot', function () {
   return this.name !== this.hName;
 })
-Handlebars.registerHelper('styleType', function () {
-  let style = '';
-  if (this.type === 'color') {
-    style = "background-color: this.code"
-  } else {
-    style = "background-image: url(this.code);"
-  }
-  return style;
-})
-</script>
+</script> --}}
