@@ -1,12 +1,11 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
-    {{#if (checkNames)}}
+    {{#if (checkNames t)}}
     <div class="custom-category-header" style={{styleType}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
     {{/if}}
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
-        {{!-- {{#if (checkNamesNot)}}{{t.name}}{{/if}} --}}
-        {{d-icon "angle-right"}}
+        {{#if (checkNamesNot t)}}{{t.name}}{{/if}} {{d-icon "angle-right"}}
       </a>
       
       <ul class="custom-category-group">
@@ -91,13 +90,12 @@
 
 </div>
 <script>
-Handlebars.registerHelper('checkNames', function () {
-  console.log(this.name);
-  return this.name === this.hName;
+Handlebars.registerHelper('checkNames', function (value) {
+  return value.name === value.hName;
 })
-//Handlebars.registerHelper('checkNamesNot', function () {
-//  return this.name !== this.hName;
-//})
+Handlebars.registerHelper('checkNamesNot', function (value) {
+  return value.name !== value.hName;
+})
 Handlebars.registerHelper('styleType', function () {
   let style = '';
   if (this.type === 'color') {
