@@ -1,6 +1,6 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
-    {{getHeader t}}
+    {{getHeader}}
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
         {{!-- {{getSubTitle}} --}} {{d-icon "angle-right"}}
@@ -88,9 +88,9 @@
 
 </div>
 <script>
-Handlebars.registerHelper('getHeader', function (t) {
+Handlebars.registerHelper('getHeader', function () {
   let result = '<!-- No Header -->';
-  console.log(t);
+  console.log(this);
 
   let style = '';
   if (this.type === 'color') {
