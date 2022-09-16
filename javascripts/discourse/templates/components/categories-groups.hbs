@@ -1,11 +1,11 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
-    {{#if (checkDaNames t)}}
-    <div class="custom-category-header" style={{styleType}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
+    {{#if (customHeaderCheck 'check')}}
+    <div class="custom-category-header" style={{customHeaderCheck 'styleCheck'}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
     {{/if}}
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
-        {{#if (checkDaNamesNot t)}}{{t.name}}{{/if}} {{d-icon "angle-right"}}
+        {{#if (customHeaderCheck 'revCheck')}}{{t.name}}{{/if}} {{d-icon "angle-right"}}
       </a>
       
       <ul class="custom-category-group">
@@ -90,20 +90,27 @@
 
 </div>
 <script>
-Handlebars.registerHelper('checkDaNames', function (value) {
-  console.log(value.name.toLowerCase() === value.hName.toLowerCase());
-  return true;
-})
-Handlebars.registerHelper('checkDaNamesNot', function (value) {
-  return true;
-})
-Handlebars.registerHelper('styleType', function () {
-  let style = '';
-  if (this.type === 'color') {
-    style = "background-color: this.code"
-  } else {
-    style = "background-image: url(this.code);"
+Handlebars.registerHelper('customHeaderCheck', function (value) {
+  let result = '';
+
+  if (value === 'check') {
+    result = this.name === this.hName;
   }
-  return style;
+
+  if (value === 'revCheck') {
+    result = this.name !== this.hName;
+  }
+
+  if (value === 'styleCheck') {
+    let style = '';
+    if (this.type === 'color') {
+      style = "background-color: this.code"
+    } else {
+      style = "background-image: url(this.code);"
+    }
+    result = style;
+  }
+  
+  return result;
 })
 </script>
