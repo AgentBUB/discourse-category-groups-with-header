@@ -89,7 +89,7 @@
 </div>
 <script>
 Handlebars.registerHelper('getHeader', function () {
-  let result = '<-- No Header -->';
+  let result = '<!-- No Header -->';
 
   let style = '';
   if (this.type === 'color') {
@@ -105,7 +105,7 @@ Handlebars.registerHelper('getHeader', function () {
   return result;
 })
 Handlebars.registerHelper('getSubTitle', function () {
-  let result = '<-- No Title -->';
+  let result = '<!-- No Title -->';
   if (this.name !== this.hName) {
     result = this.name;
   }
