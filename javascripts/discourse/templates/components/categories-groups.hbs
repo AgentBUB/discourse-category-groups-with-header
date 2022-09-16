@@ -90,12 +90,14 @@
   {{/each}}
 
 </div>
-{{!-- <script>
-Handlebars.registerHelper('checkNames', function () {
-  console.log(this.name);
-  return this.name === this.hName;
+<script>
+Handlebars.registerHelper('styleType', function () {
+  let style = '';
+  if (this.type === 'color') {
+    style = "background-color: this.code"
+  } else {
+    style = "background-image: url(this.code);"
+  }
+  return style;
 })
-Handlebars.registerHelper('checkNamesNot', function () {
-  return this.name !== this.hName;
-})
-</script> --}}
+</script>
