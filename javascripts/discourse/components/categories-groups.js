@@ -57,7 +57,7 @@ export default Component.extend({
     let foundCats = [];
 
     const parsedSettings = parseSettings(settings.category_groups);
-    const parsedHeaderSettings = parseHeaderSettings(settings.category_headers);
+    // const parsedHeaderSettings = parseHeaderSettings(settings.category_headers);
 
     parsedSettings.forEach(function(obj) {
       let catGroup = categories.filter((c) => {     
@@ -72,17 +72,17 @@ export default Component.extend({
       }
     });
 
-    parsedHeaderSettings.forEach(function(obj) {
-      let headerGroup = catGroupList.name.filter((c) => {     
-          if (obj.catGroup === c.name) {
-              return c;
-          }
-      })
+    // parsedHeaderSettings.forEach(function(obj) {
+    //   let headerGroup = catGroupList.name.filter((c) => {     
+    //       if (obj.catGroup === c.name) {
+    //           return c;
+    //       }
+    //   })
 
-      if (headerGroup.length) { // don't show empty groups
-        catGroupList.push({ hName: obj.catGroup, type: obj.type.toLowerCase(), code: obj.code });
-      }
-    });
+    //   if (headerGroup.length) { // don't show empty groups
+    //     catGroupList.push({ hName: obj.catGroup, type: obj.type.toLowerCase(), code: obj.code });
+    //   }
+    // });
 
     
     let ungroupedCats = categories.filter((c) => {
