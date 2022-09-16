@@ -1,11 +1,9 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
-    {{#if (customHeaderCheck 'check')}}
-    <div class="custom-category-header" style={{customHeaderCheck 'styleCheck'}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
-    {{/if}}
+    {{getHeader}}
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
-        {{#if (customHeaderCheck 'revCheck')}}{{t.name}}{{/if}} {{d-icon "angle-right"}}
+        {{getSubTitle}} {{d-icon "angle-right"}}
       </a>
       
       <ul class="custom-category-group">
@@ -90,27 +88,24 @@
 
 </div>
 <script>
-Handlebars.registerHelper('customHeaderCheck', function (value) {
+Handlebars.registerHelper('getHeader', function () {
   let result = '';
-
-  if (value === 'check') {
-    result = this.name === this.hName;
+  let style = '';
+  if (this.type === 'color') {
+    style = "background-color: this.code"
+  } else {
+    style = "background-image: url(this.code);"
   }
-
-  if (value === 'revCheck') {
-    result = this.name !== this.hName;
+  if (this.name === this.hName) {
+    result = `<div class="custom-category-header" style=${style}><h1 class="custom-category-header-title">${this.name}</h1></div>`;
   }
-
-  if (value === 'styleCheck') {
-    let style = '';
-    if (this.type === 'color') {
-      style = "background-color: this.code"
-    } else {
-      style = "background-image: url(this.code);"
-    }
-    result = style;
+  return result;
+})
+Handlebars.registerHelper('getSubTitle', function () {
+  let result = '';
+  if (this.name !== this.hName) {
+    result = this.name;
   }
-  
   return result;
 })
 </script>
