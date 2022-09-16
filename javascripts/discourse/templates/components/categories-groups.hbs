@@ -1,9 +1,9 @@
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
-    {{getHeader}}
+    <div class="custom-category-header" style={{styleType}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
-        {{!-- {{getSubTitle}} --}} {{d-icon "angle-right"}}
+        {{#if (checkNamesNot)}}{{/if}} {{d-icon "angle-right"}}
       </a>
       
       <ul class="custom-category-group">
@@ -88,22 +88,13 @@
 
 </div>
 <script>
-Handlebars.registerHelper('getHeader', function () {
-  let result = '<!-- No Header -->';
-  console.log(this);
-
+Handlebars.registerHelper('styleType', function () {
   let style = '';
   if (this.type === 'color') {
-    style = `background-color: ${this.code};`
+    style = "background-color: this.code"
   } else {
-    style = `background-image: url(${this.code});`
+    style = "background-image: url(this.code);"
   }
-
-  if (this.name === this.hName) {
-    result = `<div class="custom-category-header" style=${style}><h1 class="custom-category-header-title">${this.name}</h1></div>`;
-  }
-
-  console.log(result);
-  return result;
+  return style;
 })
 </script>
