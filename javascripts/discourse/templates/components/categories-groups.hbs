@@ -1,19 +1,5 @@
-<script>
-Handlebars.registerHelper('styleType', function () {
-  let style = '';
-  if (this.name !== this.hName) {
-    style = "display: none;"
-  } else if (this.type === 'color') {
-    style = "background-color: this.code"
-  } else {
-    style = "background-image: url(this.code);"
-  }
-  return style;
-})
-</script>
 <div class="custom-categories-groups">
   {{#each catGroupList as |t| }}
-    {{t.hName}}
     <div class="custom-category-header" style={{styleType}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>

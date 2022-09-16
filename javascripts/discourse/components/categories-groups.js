@@ -28,6 +28,18 @@ function parseHeaderSettings(settings) {
   return parsed;
 }
 
+Handlebars.registerHelper('styleType', function () {
+  let style = '';
+  if (this.name !== this.hName) {
+    style = "display: none;"
+  } else if (this.type === 'color') {
+    style = "background-color: this.code"
+  } else {
+    style = "background-image: url(this.code);"
+  }
+  return style;
+})
+
 export default Component.extend({
   catGroupList: [],
 
