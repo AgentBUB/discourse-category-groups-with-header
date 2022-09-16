@@ -3,7 +3,7 @@
     <div class="custom-category-header" style={{styleType}}><h1 class="custom-category-header-title">{{t.name}}</h1></div>
     <div class="custom-category-group-{{dasherize t.name}} is-expanded">
       <a id="{{dasherize t.name}}" class="custom-category-group-toggle" href {{action "toggleCats" t.name}}>
-        {{#if (checkNamesNot)}}{{/if}} {{d-icon "angle-right"}}
+        {{t.name}} {{d-icon "angle-right"}}
       </a>
       
       <ul class="custom-category-group">
