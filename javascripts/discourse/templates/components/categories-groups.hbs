@@ -91,10 +91,11 @@
 </div>
 <script>
 Handlebars.registerHelper('checkNames', function (value) {
-  return value.name.toLowerCase() === value.hName.toLowerCase();
+  console.log(value.name.toLowerCase() === value.hName.toLowerCase());
+  return true;
 })
 Handlebars.registerHelper('checkNamesNot', function (value) {
-  return value.name.toLowerCase() !== value.hName.toLowerCase();
+  return true;
 })
 Handlebars.registerHelper('styleType', function () {
   let style = '';
